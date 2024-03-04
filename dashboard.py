@@ -5,7 +5,7 @@ import streamlit as st
 
 sns.set(style='white')
 
-#Bagaimana hubungan temperatur feeling (yang dirasakan manusia) dan temperatur aktual mempengaruhi jumlah peminjaman sepeda?
+#1. Bagaimana hubungan temperatur feeling (yang dirasakan manusia) dan temperatur aktual mempengaruhi jumlah peminjaman sepeda?
 def atemp_temp_totalbike_df(hour_bike):
     plt.figure(figsize=(8, 5))
     sns.scatterplot(data=hour_bike, x='atemp', y='cnt', hue='temp', palette='YlGnBu')
@@ -28,7 +28,7 @@ def atemp_temp_totalbike_df(hour_bike):
             """
         )
 
-#Pada musim apa peminjaman sepeda mencapai jumlah terbanyak pada tahun 2012?
+#2. Pada musim apa peminjaman sepeda mencapai jumlah terbanyak pada tahun 2012?
 def season_totalbike_df(hour_bike):
     data_2012 = hour_bike[hour_bike['yr'] == 1]
     jumlah_peminjaman_per_musim_2012 = data_2012.groupby(['season', 'yr'])['cnt'].sum().reset_index()
@@ -36,7 +36,7 @@ def season_totalbike_df(hour_bike):
     plt.figure(figsize=(8, 5))
     plt.bar(jumlah_peminjaman_per_musim_2012['season'], jumlah_peminjaman_per_musim_2012['cnt'], color='darkblue')
     plt.xlabel('Musim')
-    plt.ylabel('Jumlah Peminjaman')
+    plt.ylabel('Jumlah Peminjaman Sepeda')
     plt.xticks([1, 2, 3, 4], ['Spring', 'Summer', 'Fall', 'Winter'])
     plt.title('Jumlah Peminjaman Sepeda setiap Musim pada Tahun 2012')
 
