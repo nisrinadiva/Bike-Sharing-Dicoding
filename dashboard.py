@@ -10,7 +10,7 @@ def atemp_temp_totalbike_df(hour_bike):
     plt.figure(figsize=(8, 5))
     sns.scatterplot(data=hour_bike, x='atemp', y='cnt', hue='temp', palette='YlGnBu')
     plt.xlabel('Temperatur Feeling')
-    plt.ylabel('Jumlah Sewa Sepeda')
+    plt.ylabel('Jumlah Peminjaman Sepeda')
     plt.title('Korelasi Temperatur Feeling dengan Jumlah Sewa Sepeda')
 
     # Menyimpan visualisasi sebagai file gambar
